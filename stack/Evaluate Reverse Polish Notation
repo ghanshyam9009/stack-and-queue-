@@ -1,0 +1,48 @@
+class Solution {
+  
+public:
+    int evalRPN(vector<string>& tokens) {
+
+        stack<string>st;
+
+        for(string str : tokens){
+            if(isoperator(str)){
+
+                 int num2 = stoi(st.top());
+                 st.pop();
+                 int num1 = stoi(st.top());
+                 st.pop();
+
+                 int result =0;
+
+                 if(str == "+"){
+                    result = num1 + num2;
+                 }
+
+                 else if(str == "-"){
+                    result = num1 - num2;
+                 }
+              
+                else if(str == "/"){
+                    result = num1 / num2;
+                 }
+
+                else if(str == "*"){
+                    result = num1 * num2;
+                 }
+
+                 st.push(to_string(result));
+            } 
+            else{
+                st.push(str);
+            }
+        }
+
+        return stoi(st.top());
+    }
+
+    private:
+     bool isoperator (string str) {
+        return (str == "+" || str == "-" ||  str == "/" || str == "*" );
+    }
+};
