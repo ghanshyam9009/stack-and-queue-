@@ -1,0 +1,44 @@
+vector<char>v;
+    while(!st.empty()){
+      v.push_back(st.top());
+      st.pop();
+    }
+    int n=v.size();
+    if(n%2==0){
+      int target=(n/2);
+      for(int i=0;i<n;i++){
+        if(i==target)continue;
+        st.push(v[i]);
+      }
+    }else{
+      int target=ceil(n/2); 
+      for(int i=0;i<n;i++){
+        if(i==target)continue;
+        st.push(v[i]);
+      }
+    }
+
+
+// efficient and recurssive way
+
+#include <bits/stdc++.h> 
+void solve(stack<int>&inputStack,int count, int size){
+
+   if(count==size/2){
+      inputStack.pop();
+      return;
+   }
+
+   int num= inputStack.top();
+   inputStack.pop();
+
+   solve(inputStack,count +1,size);
+   inputStack.push(num);
+
+}
+void deleteMiddle(stack<int>&inputStack, int N){
+	
+   int count=0;
+   solve(inputStack,count,N);
+   
+}
