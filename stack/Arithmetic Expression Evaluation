@@ -1,0 +1,29 @@
+1. Polish notation (prefix notation) – 
+It refers to the notation in which the operator is placed before its two operands. Here no parentheses are required, i.e., 
+
++AB 
+2. Reverse Polish notation(postfix notation) – 
+It refers to the analogous notation in which the operator is placed after its two operands. Again, no parentheses is required in Reverse Polish notation, i.e., 
+
+AB+ 
+
+
+
+Infix notation: (A-B)*[C/(D+E)+F]
+Post-fix notation: AB- CDE +/F +* 
+
+
+
+The procedure for getting the result is: 
+
+Convert the expression in Reverse Polish notation( post-fix notation). 
+Push the operands into the stack in the order they appear. 
+When any operator encounters then pop two topmost operands for executing the operation. 
+After execution push the result obtained into the stack. 
+After the complete execution of expression, the final result remains on the top of the stack. 
+
+For example – 
+
+Infix notation: (2+4) * (4+6)
+Post-fix notation: 2 4 + 4 6 + *
+Result: 60 
