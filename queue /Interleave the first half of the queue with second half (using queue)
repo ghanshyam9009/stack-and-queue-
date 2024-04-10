@@ -1,0 +1,40 @@
+#include <bits/stdc++.h> 
+
+void interLeaveQueue(queue < int > & q) {
+
+// Create a new Queue
+
+    queue<int>a;
+
+    int n=0;
+
+    int e=q.size()/2;
+
+// Remove first half elements from old queue and store them in the new queue
+
+    while(n!=e){
+
+        a.push(q.front());
+
+        q.pop();
+
+        n++;
+
+    }
+
+//merge the new queue elements in the old queue
+
+    while(!a.empty()){
+
+        q.push(a.front());  // First add the new queue element in the old queue and then pop it.
+
+        a.pop();
+
+        q.push(q.front());   // Push the front element to the end in the old queue and pop it
+
+        q.pop();
+
+    }
+
+}
+
