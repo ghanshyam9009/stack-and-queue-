@@ -1,0 +1,66 @@
+// using stack
+
+void reverse(queue<int> &q)
+{
+
+    // Explicitly create a stack.
+    stack<int> st;
+
+    // Push all elements of the queue into the stack.
+    while (!q.empty())
+    {
+        st.push(q.front());
+        q.pop();
+    }
+
+    // Push back all elements from the stack into the queue.
+    while (!st.empty())
+    {
+        q.push(st.top());
+        st.pop();
+    }
+}
+
+void printQueue(queue<int> q)
+{
+
+    while(!q.empty())
+    {
+        cout<<q.front()<<" ";
+        q.pop();
+    }
+    cout<<endl;
+}
+
+
+// using recurssion
+
+void reverse(queue < int > & q) {
+    if (q.empty()) {
+
+        // If the queue is empty, return.
+        return;
+    }
+
+    // Store the front element in a variable.
+    int element = q.front();
+    q.pop();
+
+    // Recursively call for the rest of the queue.
+    reverse(q);
+
+    // Push back the stored element.
+    q.push(element);
+}
+
+
+void printQueue(queue<int> q)
+{
+
+    while(!q.empty())
+    {
+        cout<<q.front()<<" ";
+        q.pop();
+    }
+    cout<<endl;
+}
