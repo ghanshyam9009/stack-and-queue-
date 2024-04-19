@@ -1,3 +1,7 @@
+
+//  stack that supports getMin() in O(1) time and O(1) extra space
+//  special syack
+
 Input
 ["MinStack","push","push","push","getMin","pop","top","getMin"]
 [[],[-2],[0],[-3],[],[],[],[]]
