@@ -1,0 +1,55 @@
+Example 1:
+
+Input: s = "][]["
+Output: 1
+Explanation: You can make the string balanced by swapping index 0 with index 3.
+The resulting string is "[[]]".
+Example 2:
+
+Input: s = "]]][[["
+Output: 2
+Explanation: You can do the following to make the string balanced:
+- Swap index 0 with index 4. s = "[]][][".
+- Swap index 1 with index 5. s = "[[][]]".
+The resulting string is "[[][]]".
+
+
+
+
+class Solution {
+public:
+    int minSwaps(string s) {
+        stack<int>st;
+          if(s.length()%2==1){
+    return -1;
+  }
+        int n= s.length();
+
+        for(int i=0;i<n;i++){
+            if(s[i]=='['){
+                st.push(s[i]);
+            }
+            else{
+                if(!st.empty() && s[i]==']'){
+                    st.pop();
+                }
+                else{
+                    st.push(s[i]);
+                }
+            }      
+        } 
+
+        int a=0,b=0;
+          while(!st.empty()){
+               if(st.top()=='['){
+                  b++;
+               }
+                else a++;
+                   st.pop();
+            }
+
+             int ans=(a+1)/2+(b+1)/2;
+              return ans/2;        
+    
+    }        
+};
